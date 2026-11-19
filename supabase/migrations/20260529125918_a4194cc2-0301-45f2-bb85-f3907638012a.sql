@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.cleanup_old_news() FROM PUBLIC, anon, authenticated;

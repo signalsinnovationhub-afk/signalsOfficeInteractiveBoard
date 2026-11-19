@@ -1,0 +1,1 @@
+ALTER TABLE public.ai_news ADD COLUMN full_text text;

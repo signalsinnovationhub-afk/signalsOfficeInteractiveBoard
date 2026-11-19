@@ -1,0 +1,12 @@
+DROP POLICY IF EXISTS "investments readable by all" ON public.investments;
+DROP POLICY IF EXISTS "Questions are viewable by everyone" ON public.questions;
+DROP POLICY IF EXISTS "results readable by all" ON public.quiz_results;
+DROP POLICY IF EXISTS "media readable by all" ON public.media_tiles;
+DROP POLICY IF EXISTS "ai_news readable by all" ON public.ai_news;
+DROP POLICY IF EXISTS "settings readable by all" ON public.app_settings;
+CREATE POLICY "investments read admin" ON public.investments FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "questions read admin" ON public.questions FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "results read admin" ON public.quiz_results FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "media read admin" ON public.media_tiles FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "ai_news read admin" ON public.ai_news FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "settings read admin" ON public.app_settings FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
